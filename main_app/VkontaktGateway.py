@@ -9,7 +9,7 @@ class VkontaktGateway:
 
     def send_post(self, post):
         url = self.request_uri.format("wall.post")
-        resp = requests.get(url=url, params={
+        requests.get(url=url, params={
             "access_token": self.access_token,
             "owner_id": -1 * self.public_id,  # lol
             "from_group": 1,

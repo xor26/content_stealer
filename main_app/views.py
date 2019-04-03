@@ -11,26 +11,17 @@ from rest_framework import generics
 
 
 class PostGetSet(viewsets.ModelViewSet):
-    """
-    API endpoint that shows all reddit posts
-    """
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 
 class PostSendSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 
 @csrf_exempt
 def receive_posts(request):
-    """
-    List all code snippets, or create a new snippet.
-    """
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) '
                       'Chrome/39.0.2171.95 Safari/537.36'
@@ -60,9 +51,6 @@ def receive_posts(request):
 
 
 class ListPostsView(generics.ListAPIView):
-    """
-    Provides a get method handler.
-    """
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
